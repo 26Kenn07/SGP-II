@@ -1,0 +1,80 @@
+let month = 1;
+let week = 1;
+let date=1;
+let day=1;
+
+const startmonth =1;
+const startdate =1;
+const startday =1;
+
+const endmonth =6;
+const enddate =20;
+
+while(month!=endmonth+1)
+{
+    const classmonth = "m"+month;
+    while(week<=4)
+    {
+        const box = document.createElement("div");
+        const cl = "week"+month+week;
+        box.id = (cl);
+        document.getElementById(classmonth).appendChild(box)
+        week++;
+    }
+    week = 1;
+    month++;
+}
+
+month = 1;
+while(month!=endmonth+1)
+{  
+    let curday = 1;
+    let curweek = 1; 
+    while(date<=30);
+    {
+                
+        date++;
+        curday++;
+        if(curday>7)
+        {
+            curday =1;
+            curweek++;
+        }
+        if(curweek>4)
+        {
+            curweek=1;
+        }
+    }
+    month++;
+}
+
+// parent = document.getElementsByClassName('m1')[0];
+// children = parent.lastElementChild;
+// console.log(children)
+
+
+
+
+
+
+
+const classmonth1 = document.getElementsByClassName(classmonth);
+    console.log(classmonth1);
+    while(date!=30)
+    {
+        const box = document.createElement("span");
+        const cl = "day"+month+date;
+        box.id = (cl);
+        box.innerHTML=date;
+        document.getElementById(classmonth).appendChild(box)
+        date++;
+        if(month==endmonth && date==enddate)
+        {
+            break;
+        }
+    }
+
+
+
+
+    

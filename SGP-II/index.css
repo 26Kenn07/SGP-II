@@ -1,0 +1,13 @@
+.months
+{
+    margin: 50px;
+}
+.dates
+{
+    padding: 10px;
+    /* border: 1px solid black; */
+}
+.weeks
+{
+    margin-top: 20px;
+}
