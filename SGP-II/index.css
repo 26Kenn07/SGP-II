@@ -1,12 +1,34 @@
-.months
+body
 {
-    margin: 50px;
+    /* background-color: black; */
+}
+.month
+{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.monthname
+{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .dates
 {
     padding: 10px;
+    /* color: white; */
     /* border: 1px solid black; */
 }
+
+.weeksnameindi
+{
+    padding: 10px;
+    /* color: white; */
+    /* border: 1px solid black; */
+}
+
 .weeks
 {
     margin-top: 20px;
