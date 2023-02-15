@@ -2,10 +2,11 @@
 
 let weeks = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "Saptempber", "October", "November", "December"]
+let dbmsday = [1,1,1,1,0,0,0];
+let dsaday = [0,1.1,0,1,0,0];
 
 
-
-let month = 10;//starting month
+let month = 1;//starting month
 let week = 1;
 let date = 1;
 let day = 1;
@@ -19,11 +20,11 @@ const startdate = 1;
 const startday = 1;
 let curday = 7; //starting var
 
-const endmonth = 1;
-const enddate = 20;
+const endmonth = 6;
+const enddate = 19;
 
 
-//------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
 //start adding month
 
@@ -41,7 +42,7 @@ while (month != endmonth + 1) {
 
 //end adding month
 
-//------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
 //starting printing month name
 
@@ -63,7 +64,7 @@ while (month != endmonth + 1) {
 
 //end printing monthname
 
-//------------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
 //start printing weeks name
 
@@ -90,7 +91,7 @@ while (month != endmonth + 1) {
 
 //end printing weeks name
 
-//-----------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
 //start adding weeks
 
@@ -115,7 +116,7 @@ while (month != endmonth + 1) {
 
 //end adding weeks
 
-//-----------------------------------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------------------------
 
 //start adding dates
 
@@ -182,6 +183,88 @@ while (month != endmonth + 1) {
 }
 
 //end adding dates
+
+//--------------------------------------------------------------------------------------------------------------
+
+//start for dbms static data oprations
+
+let dbmst = 30;
+let dbmsn = 21;
+let tmpdbmsn = dbmsn;
+
+while ((dbmsn / dbmst) * 100 < 80) {
+    dbmst++;
+    dbmsn++;
+}
+
+let itrdbms = dbmsn - tmpdbmsn;
+console.log(itrdbms);
+let startingd = 15; // today's date
+let startingm = 2;  //today's month
+
+let tmpd = startdate
+let tmpm = startmonth
+let tmpvar = curday
+
+// let conformvar = 0;
+// let datecur = new Date().toDateString();
+// let datecurvar = datecur.slice(0, 3)
+// if (datecurvar === "Mon") conformvar = 0;
+// else if (datecurvar === "Tue") conformvar = 1;
+// else if (datecurvar === "Wed") conformvar = 2;
+// else if (datecurvar === "The") conformvar = 3;
+// else if (datecurvar === "Fri") conformvar = 4;
+// else if (datecurvar === "Sat") conformvar = 5;
+// else if (datecurvar === "Sun") conformvar = 6;
+// conformvar++;
+// console.log(conformvar);
+
+let conformvar = 2;
+
+let tmpitr = 0;
+while (tmpitr < itrdbms) {
+    while (startingm != endmonth && tmpitr < itrdbms) {
+        let max = 0;
+        if (startingm == 2) {
+            max = 28;
+        }
+        else if (startingm == 7 || month == 8) {
+            max = 31;
+        }
+        else if (startingm % 2 != 0) {
+            max = 31;
+        }
+        else {
+            max = 30
+        }
+        while (startingd <= max && tmpitr < itrdbms) {
+            let idnamedbms = "day" + startingm + startingd;
+            // console.log(idnamedbms);
+            if(dbmsday[conformvar]!=0)
+            {
+                console.log(idnamedbms);
+                // console.log(dbmsday[conformvar]);
+                tmpitr+=dbmsday[conformvar];
+                document.getElementById(idnamedbms).style.color = "red";
+            }
+            // console.log(conformvar)
+            // tmpitr++;
+            conformvar++;
+            if(conformvar>6)conformvar=0;
+            startingd++;
+        }
+        startingd=1;
+        startingm++;
+        if (startingm > 12) startingm = 1;
+    }
+
+}
+
+//end dbms static data opration
+
+//--------------------------------------------------------------------------------------------------------------
+
+
 
 
 // parent = document.getElementsByClassName('m1')[0];
