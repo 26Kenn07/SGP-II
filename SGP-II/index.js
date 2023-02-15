@@ -3,25 +3,26 @@
 let weeks = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
 let months = ["January", "February", "March", "April", "May", "June", "July", "August", "Saptempber", "October", "November", "December"]
 let dbmsday = [1,1,1,1,0,0,0];
-let dsaday = [0,1.1,0,1,0,0];
+let dsaday = [0,1,1,0,1,0,0];
+let mcoday = [0,0,2,1,1,0,0];
 
 
-let month = 1;//starting month
+let month = 1; //starting month goes here from database*****
 let week = 1;
-let date = 1;
+let date = 1; //starting date goes here from database*****
 let day = 1;
 
 
 
-let tmpmonth = month;
+let tmpmonth = month; // to store starting month for multiple use
 
 const startmonth = 1;
 const startdate = 1;
 const startday = 1;
-let curday = 7; //starting var
+let curday = 7; //starting weekday goes here from database*****
 
-const endmonth = 6;
-const enddate = 19;
+const endmonth = 6; //ending month goes here from database*****
+const enddate = 19; //ending date goes here from database*****
 
 
 //--------------------------------------------------------------------------------------------------------------
@@ -184,9 +185,54 @@ while (month != endmonth + 1) {
 
 //end adding dates
 
+//starting clear function
+
+function clearcolor()
+{
+    let clrsmonth = 1;
+    let clrsdate = 1;
+
+    let clremonth = 6;
+    let clredate = 19;
+
+    while(clrsmonth!=clremonth)
+    {
+        if (clrsmonth == 2) {
+            max = 28;
+        }
+        else if (clrsmonth == 7 || clrsmonth == 8) {
+            max = 31;
+        }
+        else if (clrsmonth % 2 != 0) {
+            max = 31;
+        }
+        else {
+            max = 30
+        }
+        while(clrsdate<=max)
+        {
+            const clrid = "day"+clrsmonth+clrsdate;
+            document.getElementById(clrid).style.color = "black";
+            clrsdate++;
+        }
+        clrsdate=1;
+        clrsmonth++;
+        if(clrsmonth>12)
+        {
+            clrsmonth=1;
+        }
+    }
+}
+
+//ending clear function
+
 //--------------------------------------------------------------------------------------------------------------
 
 //start for dbms static data oprations
+
+function dbms()
+{
+clearcolor();
 
 let dbmst = 30;
 let dbmsn = 21;
@@ -206,6 +252,7 @@ let tmpd = startdate
 let tmpm = startmonth
 let tmpvar = curday
 
+
 // let conformvar = 0;
 // let datecur = new Date().toDateString();
 // let datecurvar = datecur.slice(0, 3)
@@ -218,6 +265,7 @@ let tmpvar = curday
 // else if (datecurvar === "Sun") conformvar = 6;
 // conformvar++;
 // console.log(conformvar);
+
 
 let conformvar = 2;
 
@@ -240,17 +288,18 @@ while (tmpitr < itrdbms) {
         while (startingd <= max && tmpitr < itrdbms) {
             let idnamedbms = "day" + startingm + startingd;
             // console.log(idnamedbms);
-            if(dbmsday[conformvar]!=0)
+            if((dbmsday[conformvar])!=0)
             {
-                console.log(idnamedbms);
-                // console.log(dbmsday[conformvar]);
+                console.log(conformvar);
+                console.log(dbmsday[conformvar]);
                 tmpitr+=dbmsday[conformvar];
                 document.getElementById(idnamedbms).style.color = "red";
             }
             // console.log(conformvar)
             // tmpitr++;
             conformvar++;
-            if(conformvar>6)conformvar=0;
+            if(conformvar>6)
+            conformvar=0;
             startingd++;
         }
         startingd=1;
@@ -260,12 +309,187 @@ while (tmpitr < itrdbms) {
 
 }
 
+}
+
 //end dbms static data opration
 
 //--------------------------------------------------------------------------------------------------------------
 
+//starting dsa static data opration
+
+function dsa()
+{
+
+clearcolor();
+
+let dbmst = 30;
+let dbmsn = 21;
+let tmpdbmsn = dbmsn;
+
+while ((dbmsn / dbmst) * 100 < 80) {
+    dbmst++;
+    dbmsn++;
+}
+
+let itrdbms = dbmsn - tmpdbmsn;
+console.log(itrdbms);
+let startingd = 15; // today's date
+let startingm = 2;  //today's month
+
+let tmpd = startdate
+let tmpm = startmonth
+let tmpvar = curday
 
 
+// let conformvar = 0;
+// let datecur = new Date().toDateString();
+// let datecurvar = datecur.slice(0, 3)
+// if (datecurvar === "Mon") conformvar = 0;
+// else if (datecurvar === "Tue") conformvar = 1;
+// else if (datecurvar === "Wed") conformvar = 2;
+// else if (datecurvar === "The") conformvar = 3;
+// else if (datecurvar === "Fri") conformvar = 4;
+// else if (datecurvar === "Sat") conformvar = 5;
+// else if (datecurvar === "Sun") conformvar = 6;
+// conformvar++;
+// console.log(conformvar);
+
+
+let conformvar = 2;
+
+let tmpitr = 0;
+while (tmpitr < itrdbms) {
+    while (startingm != endmonth && tmpitr < itrdbms) {
+        let max = 0;
+        if (startingm == 2) {
+            max = 28;
+        }
+        else if (startingm == 7 || month == 8) {
+            max = 31;
+        }
+        else if (startingm % 2 != 0) {
+            max = 31;
+        }
+        else {
+            max = 30
+        }
+        while (startingd <= max && tmpitr < itrdbms) {
+            let idnamedbms = "day" + startingm + startingd;
+            // console.log(idnamedbms);
+            if((dsaday[conformvar])!=0)
+            {
+                console.log(conformvar);
+                console.log(dsaday[conformvar]);
+                tmpitr+=dsaday[conformvar];
+                document.getElementById(idnamedbms).style.color = "red";
+            }
+            // console.log(conformvar)
+            // tmpitr++;
+            conformvar++;
+            if(conformvar>6)
+            conformvar=0;
+            startingd++;
+        }
+        startingd=1;
+        startingm++;
+        if (startingm > 12) startingm = 1;
+    }
+
+}
+
+}
+
+//end of dsa static operation
+
+//----------------------------------------------------------------
+
+//starting of mco static data poration
+
+function mco()
+{
+
+clearcolor();
+
+let dbmst = 30;
+let dbmsn = 21;
+let tmpdbmsn = dbmsn;
+
+while ((dbmsn / dbmst) * 100 < 80) {
+    dbmst++;
+    dbmsn++;
+}
+
+let itrdbms = dbmsn - tmpdbmsn;
+console.log(itrdbms);
+let startingd = 15; // today's date
+let startingm = 2;  //today's month
+
+let tmpd = startdate
+let tmpm = startmonth
+let tmpvar = curday
+
+
+// let conformvar = 0;
+// let datecur = new Date().toDateString();
+// let datecurvar = datecur.slice(0, 3)
+// if (datecurvar === "Mon") conformvar = 0;
+// else if (datecurvar === "Tue") conformvar = 1;
+// else if (datecurvar === "Wed") conformvar = 2;
+// else if (datecurvar === "The") conformvar = 3;
+// else if (datecurvar === "Fri") conformvar = 4;
+// else if (datecurvar === "Sat") conformvar = 5;
+// else if (datecurvar === "Sun") conformvar = 6;
+// conformvar++;
+// console.log(conformvar);
+
+
+let conformvar = 2;
+
+let tmpitr = 0;
+while (tmpitr < itrdbms) {
+    while (startingm != endmonth && tmpitr < itrdbms) {
+        let max = 0;
+        if (startingm == 2) {
+            max = 28;
+        }
+        else if (startingm == 7 || month == 8) {
+            max = 31;
+        }
+        else if (startingm % 2 != 0) {
+            max = 31;
+        }
+        else {
+            max = 30
+        }
+        while (startingd <= max && tmpitr < itrdbms) {
+            let idnamedbms = "day" + startingm + startingd;
+            // console.log(idnamedbms);
+            if((mcoday[conformvar])!=0)
+            {
+                console.log(conformvar);
+                console.log(mcoday[conformvar]);
+                tmpitr+=mcoday[conformvar];
+                document.getElementById(idnamedbms).style.color = "red";
+            }
+            // console.log(conformvar)
+            // tmpitr++;
+            conformvar++;
+            if(conformvar>6)
+            conformvar=0;
+            startingd++;
+        }
+        startingd=1;
+        startingm++;
+        if (startingm > 12) startingm = 1;
+    }
+
+}
+
+}
+
+//ending os mco static data opration
+
+//----------------------------------------------------------------
 
 // parent = document.getElementsByClassName('m1')[0];
 // children = parent.lastElementChild;

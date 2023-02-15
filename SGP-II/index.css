@@ -2,6 +2,17 @@ body
 {
     /* background-color: black; */
 }
+.buttonsub
+{
+    padding:5px;
+    width: 75px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+.options
+{
+    margin-top: 50px;
+}
 .month
 {
     margin-top: 50px;
