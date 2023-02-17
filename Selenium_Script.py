@@ -114,7 +114,7 @@ print("Course = ",Course6.text)
 Class6 = wait.until(EC.presence_of_element_located((By.XPATH, "//span[@id='gvGrossAttPop_ctl07_lblClass']")))
 print("Class Type = ",Class6.text)
 
-Total6 = wait.until(EC.presence_of_element_located((By.XPATH, "//td[@align='center'][contains(text(),'24')]")))
+Total6 = wait.until(EC.presence_of_element_located((By.XPATH, "//body[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[3]")))
 print("Total = ",Total6.text)
 
 Percentage6 = wait.until(EC.presence_of_element_located((By.XPATH, "//body[1]/form[1]/div[3]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/table[1]/tbody[1]/tr[7]/td[4]")))
