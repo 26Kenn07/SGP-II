@@ -55,7 +55,7 @@ while (month != endmonth + 1) {
     box.id = "monthname" + classmonth;
     let tmpweeks = "monthname" + classmonth;
     box.className = "monthname";
-    box.innerHTML = months[month - 1]
+    box.innerHTML = months[month - 1]  
     document.getElementById(classmonth).appendChild(box);
     month++;
     if (month > 12) {
@@ -212,7 +212,7 @@ function clearcolor()
         while(clrsdate<=max)
         {
             const clrid = "day"+clrsmonth+clrsdate;
-            document.getElementById(clrid).style.color = "black";
+            document.getElementById(clrid).style.backgroundColor = "white";
             clrsdate++;
         }
         clrsdate=1;
@@ -235,7 +235,7 @@ function dbms()
 clearcolor();
 
 let dbmst = 30;
-let dbmsn = 21;
+let dbmsn = 23;
 let tmpdbmsn = dbmsn;
 
 while ((dbmsn / dbmst) * 100 < 80) {
@@ -293,7 +293,8 @@ while (tmpitr < itrdbms) {
                 console.log(conformvar);
                 console.log(dbmsday[conformvar]);
                 tmpitr+=dbmsday[conformvar];
-                document.getElementById(idnamedbms).style.color = "red";
+                document.getElementById(idnamedbms).style.backgroundColor = "red";
+                   
             }
             // console.log(conformvar)
             // tmpitr++;
@@ -381,7 +382,8 @@ while (tmpitr < itrdbms) {
                 console.log(conformvar);
                 console.log(dsaday[conformvar]);
                 tmpitr+=dsaday[conformvar];
-                document.getElementById(idnamedbms).style.color = "red";
+                document.getElementById(idnamedbms).style.backgroundColor = "red";
+                   
             }
             // console.log(conformvar)
             // tmpitr++;
@@ -469,7 +471,8 @@ while (tmpitr < itrdbms) {
                 console.log(conformvar);
                 console.log(mcoday[conformvar]);
                 tmpitr+=mcoday[conformvar];
-                document.getElementById(idnamedbms).style.color = "red";
+                document.getElementById(idnamedbms).style.backgroundColor = "red";
+                 
             }
             // console.log(conformvar)
             // tmpitr++;
